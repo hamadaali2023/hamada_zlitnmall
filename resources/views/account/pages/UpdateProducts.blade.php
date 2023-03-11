@@ -13,7 +13,7 @@
   </div>
   <!-- /.box-header -->
   <div class="box-body">
-    <form method="post" action="/Admin/productsStore" enctype="multipart/form-data" role="form">
+    <form method="post" action="{{url('/Admin/productsStore')}}" enctype="multipart/form-data" role="form">
        
       {{ csrf_field() }}
       <input type="hidden" name="product_id" value="{{$product->id}}">

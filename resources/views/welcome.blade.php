@@ -7,11 +7,9 @@
             <div class="panel panel-default">
                 <div class="panel-heading">Welcome</div>
                 {{--  get data from the api file   --}}
-                <?php
-                $api=file_get_contents('http://localhost:8000/api/testapi');
-                $api=json_decode($api);
-                ?>
-                {{$api->massage}}
+               
+                {{$data}}
+              
 
                 <div class="panel-body">
                     Your Application's Landing Page.

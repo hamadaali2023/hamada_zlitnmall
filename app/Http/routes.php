@@ -10,7 +10,7 @@
 
 
 
-Route::filter('ssss', function()
+Route::filter('Zlitn', function()
 {
     // check the current user
     if (!Entrust::can('role-read')) {

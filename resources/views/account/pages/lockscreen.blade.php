@@ -47,7 +47,7 @@
     <!-- /.lockscreen-image -->
 
     <!-- lockscreen credentials (contains the form) -->
-    <form action="/chickpassword" method="POST"  class="lockscreen-credentials">
+    <form action="{{ URL::asset('/chickpassword')}}" method="POST"  class="lockscreen-credentials">
         {{ csrf_field() }}
       <div class="input-group">
         <input type="hidden" name="user_id" value="{{$user->id}}">
@@ -66,7 +66,7 @@
     Enter your password to retrieve your session
   </div>
   <div class="text-center">
-    <a href="/Admin/login">Or sign in as a different user</a>
+    <a href="{{ URL::asset('/Admin/login')}}">Or sign in as a different user</a>
   </div>
   @foreach($errors->all() as $error)
   <div class="alert alert-warning alert-dismissible">

@@ -18,9 +18,15 @@ class product extends Model
     {
         return $this->belongsTo(user::class);
     }
-
-    public function sections()
+    
+      public function CartApis()
     {
-        return $this->belongsToMany('App\section','product_sections','product_id','section_id');
+         return $this->hasMany(CartApi::class,'id','product_id'::class);
+          //return $this->belongsTo(product::class);
+    }
+
+    public function shop()
+    {
+        return $this->belongsTo(Shop::class, 'shop_id');
     }
 }

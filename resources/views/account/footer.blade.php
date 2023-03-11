@@ -212,7 +212,7 @@
 <script src="{{ URL::asset('account/plugins/datatables/jquery.dataTables.min.js')}}"></script>
 <script src="{{ URL::asset('account/plugins/datatables/dataTables.bootstrap.min.js')}}"></script>
 <!-- SlimScroll -->
-<script src="{{ URL::asset('account/plugins/slimScroll/jquery.slimscroll.min.js')}}"></script>
+{{-- <script src="{{ URL::asset('account/plugins/slimScroll/jquery.slimscroll.min.js')}}"></script> --}}
 <!-- Select2 -->
 <script src="{{ URL::asset('account/plugins/select2/select2.full.min.js')}}"></script>
 <!-- FastClick -->
@@ -276,6 +276,18 @@
 
 
 </script>
+
+
+<script>
+    $('.Delete').click(function () {
+        var r = confirm("هل تريد مسح المحل ؟");
+        if (r == true) {
+            window.location = "/Admin/Deleteshop/" + $(this).val();
+        }
+    });
+
+</script>
+
 
 
 </body>

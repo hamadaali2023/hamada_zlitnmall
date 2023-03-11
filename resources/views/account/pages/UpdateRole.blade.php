@@ -11,7 +11,7 @@
         <div class="col-xs-12 ">
         <div class="box box-warning">
           <div class="box-header with-border">
-            <h3 class="box-title">Add New Role </h3>
+            <h3 class="box-title">تعديل صالحية </h3>
           </div>
           <!-- /.box-header -->
           <div class="box-body">
@@ -20,27 +20,24 @@
                 {{ method_field('PATCH') }}
               <!-- text input -->
               <div class="form-group"> 
-                <label>Role Name</label>
+                <label>أسم الصالحية</label>
                 <input value="{{$Role->name}}" name="Role_Name"  type="text" class="form-control" placeholder="Enter ...">
               </div>
       
               <!-- text input -->
-              <div class="form-group">
-                <label>Role display Name</label>
-                <input value="{{$Role->display_name}}" name="Role_DisplayName"  type="text" class="form-control" placeholder="Enter ...">
-              </div>
+              
              
         
               <!-- textarea -->
               <div class="form-group">
-                <label>Role Descraption</label>
+                <label>شرح مبسط للصالحية</label>
                 <input type="text" value="{{$Role->description}}" name="Role_Descraption" class="form-control"  placeholder="Enter ..."></input>
               </div>
       
       
               <!-- text input -->
               <div class="">
-                <label>Role Permissions</label> <br> <br>
+                <label>أذونات الصالحية</label> <br> <br>
                 @foreach ( $Permissions as  $Permission)
                 <div class="col-md-3">
       
@@ -55,7 +52,7 @@
         
               <div class="box-footer">
                 {{--  <button type="submit" class="btn btn-default">Cancel</button>  --}}
-                <button type="submit" class="btn btn-info pull-right">Save</button>
+                <button type="submit" class="btn btn-info pull-right">حفظ</button>
               </div>
           
             </form>
@@ -64,9 +61,8 @@
         </div>
         </div>
         <div class="callout callout-warning text-center">
-            <h4>if you want to access Admin url 
-              you should checked permission 
-              <br><b>Access_admin_panel</b>!</h4>
+          <h4>لكي تسطيع الدخول للجزء الأدمن يرجى أختيار أذن  
+            <br><b>سماح-الدخول-الأدمن</b>!</h4>
     
             
           </div>

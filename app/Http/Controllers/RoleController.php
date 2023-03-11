@@ -17,7 +17,7 @@ class RoleController extends Controller
     public function index()
     {
         $Roles=Role::all();
-        $Permissions = DB::table('Permissions')
+        $Permissions = DB::table('permissions')
         ->orderBy('name', 'desc')  // You can pass as many columns as you required
         ->get();
         return view('account.pages.role',compact("Roles","Permissions"));
@@ -47,7 +47,7 @@ class RoleController extends Controller
 
         $Role=new Role();
         $Role->name=$request->Role_Name;
-        $Role->display_name=$request->Role_DisplayName;
+        
         $Role->description=$request->Role_Descraption;
         $Role->save();
 
@@ -80,13 +80,10 @@ class RoleController extends Controller
      */
     public function edit($id)
     {
-
         $Role=Role::find($id);
         $Permissions=Permission::all();
         $Role_Permissions=$Role->perms()->pluck('id','id')->toArray();
-        return view('account.pages.UpdateRole',compact('Role','Permissions','Role_Permissions'));
-
-       
+        return view('account.pages.UpdateRole',compact('Role','Permissions','Role_Permissions'));  
     }
 
     /**
@@ -100,7 +97,7 @@ class RoleController extends Controller
     {
         $Role=Role::find($id);
         $Role->name=$request->Role_Name;
-        $Role->display_name=$request->Role_DisplayName;
+       
         $Role->description=$request->Role_Descraption;
         $Role->save();
 

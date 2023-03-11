@@ -1,0 +1,92 @@
+
+/api/register
+
+            'email' => 'required|unique:users|max:100|email',
+            'password' => 'required|confirmed',
+            'password_confirmation' => 'required',
+            'name' => 'required',
+            'address' => 'required',
+            'phone' => 'numeric|min:11|required',
+            'disease' => 'nullable',
+            'dob' => 'date_format:"Y-m-d"|required',
+            'gender' => 'required',
+            'photo' => 'nullable'
+
+_______________________________
+
+/api/login
+
+	    'email' => 'required|email',
+            'password' => 'required',
+
+______________________________________________________ GET
+
+/api/acceptedads                          // response advertisements
+
+
+/api/getpackages                          // response packages names
+
+/api/getpackagedata/{id}  	 	  // id => package_id = response cosmetics related to this package
+
+/api/getcategory			  // response names of categories like ('reglay' , '7aremy', etc)
+
+/api/getgroup/{id} 			  // id => category_id = response the groups related to this category
+
+/api/getcosmetic/{id}			  // id => group_id    = response this cosmetics related to this group
+
+/api/getorderuser			 // get all orders related to this user
+
+________________________________________________________ POST
+
+/api/nearest
+	
+            'lat' => 'required|numeric',
+            'lng' => 'required|numeric',
+						response id of nearest pharmacy
+
+
+/api/addorder
+  
+            'address'=>'required',
+            'image'=>'nullable',
+            'name'=>'nullable',
+            'pharmacy_id'=>'required', 		the response from /nearest
+            'phone' => 'required',
+            'cosmetic' =>'nullable',	// example [1,2]
+            'package' =>'nullable', 	// example [1,2]
+
+
+/api/addcomplaint	
+
+            'title' => 'required',
+            'body' => 'required'
+
+
+/api/addrate			
+
+            'order_id' => 'required|numeric',
+            'rate' => 'required|integer|between:1,5'	
+
+
+/api/upload			// to upload any images
+
+
+            'image'=>'required|max:2048',
+            'image.*' => 'mimes:jpeg,png,jpg,gif,svg'
+	
+			send images as array of files like that :: image[] : [file1,file2]
+
+
+
+
+
+hint .. 
+
+any request you will send (GET or POST) 
+you must put the token in Authorization in header
+
+like that 
+
+Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aSI6ImR.........
+
+you will get token after login
